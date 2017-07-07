@@ -1,0 +1,12 @@
+reg<-function(n){
+options(digits=3)
+x<-seq(1,n)
+sigma<-2.5
+b0<-2
+b1<-3
+error<-rnorm(n,sd=sigma)
+y<-b0+b1*x+error
+return(t(data.frame(x,y)))
+}
+t<-reg(5)
+print(t)

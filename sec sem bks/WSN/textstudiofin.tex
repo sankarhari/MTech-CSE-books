@@ -1,0 +1,269 @@
+\documentclass[11pt]{beamer}
+\usetheme{Warsaw}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+
+\author [Beula]{\scriptsize by \\[1cm] color Kazem Sohraby \\Daniel Minoli \\Taieb Znati}
+\title{PERFORMANCE AND TRAFFIC MANAGEMENT}
+
+
+
+\begin{document}
+	\maketitle
+	
+	\begin{frame}
+		\frametitle{BACKGROUND}
+			\begin{enumerate}
+				\item   Performance modeling and evaluation should consider new metrics for WSNs, such as system lifetime and energy effciency, and the introduction of new traffic attributes.
+				\item  Sensor nodes have resource constraints: limited energy, limited communication and computational capabilities, and limited memory. 
+				\item  A sensor node may belong in one of four groups:
+			\begin{itemize}
+				\item a specialized sensing platform such as Spec, which is small in size and memory, and has a narrow communication bandwidth and short radio distance.
+				\item a generic sensing platform such as the Bekeley mote, which is designed using off-the-shelf components and has a bandwidth of 100 kbps or so and more memory than Spec.
+				\item a highbandwidth sensing device such as iMote, which has a much broader bandwidth than the earlier ones (Bluetooth-based radio) as well as a larger memory.
+				\item a gateway-like sensor node such as Stargate, which is a gateway to directly connect mote (or iMote)-based devices.
+				\end{itemize}
+			
+				
+			\end{enumerate}
+		
+	\end{frame}
+	\begin{frame}
+		\frametitle{contd..}
+		\begin{enumerate}
+			\item WSNs usually have a multihop physical topology.
+			\item This topology can result in more efficient routing, but the topology formation is an energy-consuming task and also increases the complexity of sensor nodes.
+			\item The topology is usually variable and has multiple paths from the source nodes to the sink.
+			\item The sensor nodes gather data and report to the sink according to the preconfigured rules. 
+			\item This many-to-one traffic how is called convergecast which means many-to-one traffic how from sensor nodes to the sink.
+			\item  The traffic how and specific functional requirements of the sensor deployment can be used to optimize networking protocols. 
+		\end{enumerate}
+		\end{frame}
+		\begin{frame}
+		\frametitle{contd..}
+		\begin{enumerate}
+			\item The basic service provided by WNSs is to detect certain events and report them.
+			\item The data related to the events are usually small, usually just a few bytes and in many cases just a few bits.
+			\item It may be possible to transmit more than one event in a single data unit if the application reporting frequency allows it.
+		\end{enumerate}
+		\end{frame}
+		\begin{frame}
+			\frametitle{Design factors for wireless sensor networks}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				\textbf{Factor} & \textbf{Options} \\
+				\hline
+				Node deployment & Random, manual, one-time, iterative\\
+				\hline
+				Mobility & Immobile, partly, all; occasional, continuous; active, passive\\
+				\hline
+				Network topology & Single-hop, star, networked stars, tree, graph\\
+				\hline
+				Coverage &  Sparse, dense, redundant\\
+				\hline
+				Connectivity & Connected, intermittent, sporadic\\
+				\hline
+				Network size &  Hundred, thousand, more\\
+				\hline
+				Communications & Laser, infrared, radio-frequency\\
+				\hline
+			\end{tabular}
+		\end{frame}
+		\begin{frame}
+		\frametitle{WSN DESIGN ISSUES}	
+		
+		\begin{enumerate}
+			\item  MAC PROTOCOLS
+			\begin{itemize}
+				\item MAC protocols affect the efficiency and reliability of hop-by-hop data transmission.
+				\item MAC protocols result in energy waste in the following ways:
+				\begin{itemize}
+					\item wireless channel is shared in a distributed environment , so packet collision cannot be avoided. The collided packets require retransmission and result in energy waste.
+					\item Most distributed wireless MAC protocols require control messages for data transmission. Control messages consume energy.
+					\item Overhearing and idle listening can also result in energy waste.
+				\end{itemize}
+				\item MAC protocols for wireless sensor networks emphasize energy efficiency through design of effective and practical approaches to deal with the foregoing problems.
+				For example, S-MAC (designs an adaptive algorithm to let sensor nodes sleep at a certain time)
+			\end{itemize}
+			\end{enumerate}
+			\end{frame}
+		\begin{frame}
+			\frametitle{WSN Design Issues}
+			\begin{enumerate}
+				\item ROUTING PROTOCOLS
+				\begin{itemize}
+					\item Data-centric routing is more suitable for WSNs because it can be deployed easily, and due to data aggregation, it saves energy.  To conserve energy, most routing protocols for WSNs employ certain technique to minimize energy consumption
+					data-centric routing scheme with three phases in its operation:
+					\begin{itemize}
+						\item  A sink broadcasts its interest across the network in query messages with a special query semantic at a low rate. 
+						\item  All the nodes cache the interest. When a node senses that an event matches the interest, it sends the data relevant to the event to all the interested nodes.
+						Sink will also get the initial data and ‘‘reinforce’’ one of source nodes by resending the interest at a higher rate.
+						\item After the reinforcement propagation, the source nodes send data directly on the reinforced path.
+					\end{itemize}
+				\end{itemize}
+			\end{enumerate}
+			\end{frame}
+			\begin{frame}
+				\frametitle{WSN Design Issues}
+			\begin{enumerate}
+				\item TRANSPORT PROTOCOL
+				\begin{itemize}
+					\item The following factors should be considered carefully in the design of transport protocols:
+					a congestion control mechanism and especially, a reliability guarantee 
+					\item Therefore, transport protocols should have mechanisms for loss recovery;	to guarantee reliability, mechanisms such as ACK and selective ACK used in the TCP would be helpful  
+					\item The hop-by-hop mechanism can also lower the buffer requirement at the intermediate nodes. 
+					\item Transport control protocols for WSNs should also avoid packet loss as much as possible since packet loss translates to waste of energy
+				\end{itemize}
+			\end{enumerate}
+			\end{frame}
+			\begin{frame}
+				\frametitle{PERFORMANCE MODELING OF WSNs}
+				\begin{enumerate}
+					\item Two important performance metrics, system lifetime and energy efficiency. Both of these metrics relate to energy consumption.
+					In WSNs, new models are required to capture special characteristics of these networks which are different from the traditional networks.
+					\item Performance metrics:
+					\begin{itemize}
+						\item System lifetime:
+						This can be defined in many ways:
+						\begin{itemize}
+							\item The duration of time until some node depletes all its energy.
+							\item the duration of time until the QoS of applications cannot be guaranteed.
+							\item The duration of time until the network has been disjoined.
+						\end{itemize}
+					\end{itemize}
+				\end{enumerate}
+			\end{frame}
+			\begin{frame}
+				\frametitle{PERFORMANCE MODELING OF WSN}
+				\begin{itemize}
+					\item Energy efficiency:
+					\begin{itemize}
+						\item Energy efficiency means the number of packets that can be transmitted successfully using a unit of energy. 
+						\item Packet collision at the MAC layer, routing overhead, packet loss, and packet retransmission reduce energy efficiency.
+					\end{itemize}
+					\item Reliability:
+					\begin{itemize}
+						\item In WSNs, the event reliability is used as a measure to show how reliable the sensed event can be reported to the sink. 
+						\item For applications that can tolerate packet loss, reliability can be defined as the ratio of successfully received packets over the total number of packets transmitted.
+					\end{itemize}
+					\item Coverage:
+					\begin{itemize}
+					\item Full coverage by a sensor network means the entire space that can be monitored by the sensor nodes.
+					\item If a sensor node becomes dysfunctional 288 PERFORMANCE AND TRAFFIC MANAGEMENT due to energy depletion, there is a certain amount of that space that can no longer be monitored. 
+					\item The coverage is defined as the ratio of the monitored space to the entire space.
+					\end{itemize}
+				
+				\end{itemize}
+			\end{frame}
+			\begin{frame}
+			\frametitle{PERFORMANCE MODELING OF WSN}
+			\begin{itemize}
+				\item Connectivity:
+				\begin{itemize}
+					\item 
+				For multihop WSNs, it is possible that the network becomes disjointed because some nodes become dysfunctional.
+				\item The connectivity metric can be used to evaluate how well the network is connected and/or how many nodes have been isolated.
+			\end{itemize}
+				\item  QoS metrics:
+				\begin{itemize}
+					\item  
+				Some applications in WSNs have real-time properties. 
+				\item These applications may have QoS requirements such as delay, loss ratio, and bandwidth.
+				\end{itemize}
+				\end{itemize}
+			\end{frame}
+			\begin{frame}
+				\frametitle{PERFORMANCE MODELING OF WSNS}
+				\begin{enumerate}
+					\item BASIC MODELS
+					\begin{itemize}
+						\item Traffic Model The applications and corresponding traffic characteristics in WSNs are different from those of traditional networks. 
+						\item For example, whereas the widely used applications for Internet include e-mail, Web-based services, the idle transfer protocol, and peer-to-peer services, wireless sensor networks have totally different ones.
+						\item As a result, traffic and data delivery models are also different.
+					\end{itemize}
+					
+				\end{enumerate}
+			\end{frame}
+			\begin{frame}
+				
+				\frametitle{PERFORMANCE MODELING OF WSNs}
+				\begin{enumerate}
+					\item Four models and the related performance aspects:
+					\begin{itemize}
+						\item Event-Based Delivery:
+						       \begin{itemize}
+						       	\item
+						       	In this case, sensor nodes monitor the occurrence of events passively and continuously.
+						       	\item When an event occurs, the sensor node begins to report the event, and possibly an associated value, to the sink.
+						       	\item When delivering event data to the sink, a routing protocol is often triggered in order to ?nd a path to the sink.
+						       	\item This routing method is called routing on-demand.
+						       	\item An  alternative approach is to set up in advance a frequently used path. An adaptive routing protocol may be required to set up a path dynamically in advance if events occur frequently.
+						       \end{itemize}
+				\end{itemize}
+			\end{enumerate}
+			\end{frame}
+			\begin{frame}
+				\frametitle{PERFORMANCE MODELING OF WSNs}
+				\begin{itemize}
+					\item Continuous Delivery:
+					\begin{itemize}
+						\item The data collected by the sensors need to be reported regularly, perhaps continuously, or periodically. 
+						\item In this situation, sensor nodes deployed inside the burrows and on the surface measure humidity, pressure, temperature, and ambient light level. 
+						\item Once a minute, sensors report sample values to the sink.
+					\end{itemize}
+					\item Query-Based Delivery:
+					 \begin{itemize}
+					 	\item Sometimes, the sink may be interested in a specific piece of information that has already been collected in sensor nodes.
+					 	query messages to sensor nodes to get the up-to-date value for the information.
+					 	\item Query messages may also carry a command from the sink to the sensors about the information, reporting frequency and other parameters of interest to the sink.
+					 \end{itemize}
+				\end{itemize}
+				\end{frame}
+				\begin{frame}
+						\frametitle{PERFORMANCE MODELING OF WSNs}
+					\begin{itemize}
+						\item Hybrid Delivery:
+						\begin{itemize}
+						\item In some WSNs, the types of sensors and the data they sense may be very diverse.
+                     \end{itemize}
+					\end{itemize}
+					\begin{enumerate}
+						\item Energy Models:
+						\begin{itemize}
+						\item The radio communication function of sensor nodes is the most energy-intensive function in the node.
+						\begin{itemize}
+						\item The first approach   : design a communication scheme that conserves energy inherently for example, turning off the transceiver for a period of time.
+						\item The second approach : reduce the volume of communications through in-network processing.
+						\end{itemize}
+						\item Model for Communication:
+						 \begin{itemize}
+						 	\item Model for Sensing Usually, the least amount of energy is consumed for sensing.
+						 	\item  Let the sensing range be rs. It can be assumed that the power consumed to perform sensing over a circle with radius rs is proportional to r2 s or r4 s
+						 	\end{itemize}
+						 	\end{itemize}
+						 	\end{enumerate}
+						 	\end{frame}
+						 	\begin{frame}
+						 		\begin{itemize}
+						 
+						 
+						 	\item Model for Computation:
+						 	\begin{itemize}
+						 		\item
+						 		A sensor node usually has a microcontroller or microCPU performing computations.
+						 	\end{itemize}
+						 	\item Node Model:
+						 	\begin{itemize}
+						 		\item To conserve energy, a common approach is to let nodes sleep when they have no need to transmit or receive.
+						 	\end{itemize}
+						 	\item The sensor nodes have two states: active (A) and sleep (S).
+						 	\begin{itemize}
+						 		\item The length of the active and sleep period are geometrically distributed random variables with a mean value of p and q time slots, respectively.
+						 	\item A two-state discrete-time Markov chain (DTMC) model for the next-hop nodes, where the next-hop nodes represent the neighboring nodes relative to the node in mind.
+						 	\item The two states defined for the next-hop node are wait (W) andforwarding (F).
+						 \end{itemize}
+						\end{itemize}
+				\end{frame}
+\end{document}

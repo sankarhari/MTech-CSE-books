@@ -1,0 +1,29 @@
+import java.util.*;
+public class stat
+{
+  public static void main(String args[])
+ {
+        int[] x1=new int[1000];
+        int[] x2=new int[1000];
+        int n=1000,n1,n2,form;
+        float pi=0.0;
+        Random ram=new Random();
+        for(int i=0;i<n;i++)
+        {
+           x1[i]=ram.nextInt();
+           x2[i]=ram.nextInt();
+           form= (x1[i]^2)+(x2[i]^2);
+           if(form<=1)
+            n1++;
+            else
+            n2++;
+       }
+         pi=4*n1/n;
+         System.out.println("pi value" +pi);
+}
+     
+
+        
+
+
+

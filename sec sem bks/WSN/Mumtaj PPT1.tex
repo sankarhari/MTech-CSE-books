@@ -1,0 +1,361 @@
+\documentclass[11pt]{class}
+\usetheme{Warsaw}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+
+\author [Mumtaj]{\scriptsize by \\[1cm] color Ian F.Akyildiz \\Mehmet Can Vuran}
+\title{WIRELESS SENSOR AND ACTOR NETWORKS}
+\begin{document}
+	\maketitle
+	
+	\begin{frame}
+		\frametitle{WSAN}
+		\begin{enumerate}
+			\item   WSANs consists of two classes of components: sensors and actors.
+			\item  The phenomena of sensing and acting are performed by sensor and actor nodes
+			\item  These two classes of components have the following distinct characteristics:.
+			\begin{itemize}
+			\item Sensor :
+				\begin{itemize}
+					\item low-cost, low-power devices with limited sensing
+				    \item A sensor node may consist of multiple sensors and observe
+				    different physical phenomena through these sensors
+			\item Actor :
+				\begin{itemize}
+					\item Resource-rich nodes equipped with higher processing capabilities, higher transmission power, and potentially longer battery life
+					\item Actors may be mobile improves the effective areas in which they can act
+					\item An actor node may be embedded with different actuators to perform different tasks
+					\item By communicating multiple actors can coordinate to decide on appropriate actions based on information received from multiple sensors.
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+		
+				
+			\end{enumerate}
+			
+		\end{frame}
+		\begin{frame}
+			\frametitle{WSAN's CHARACTERISTICS}
+			\begin{enumerate}
+				\item WSANs have the following unique characteristics:
+					\begin{itemize}
+						\item Heterogeneity: 
+						\begin{itemize}
+							\item WSANs consist of heterogeneous components including low-end sensor nodes and more powerful actor nodes.
+							\item heterogeneous sets of network protocols are required
+						\end{itemize}
+						\item Real Time requirement :
+						\begin{itemize}
+							\item  WSANs are essentially closed-loop systems, where decisions are made according to the input from the sensors
+							\item Example in the fire monitoring application, if a fire is detected, the sensors should relay this information to the appropriate sprinklers to immediately put out the fire. 
+							\item The collected and delivered sensor data must still be valid at the time of acting
+						\end{itemize}
+						\item Co ordination
+							\begin{itemize}
+								\item In WSANs, new networking phenomena called sensor–actor and actor–actor coordination 
+								\item 
+							\end{itemize}
+					\end{itemize}
+						
+							\end{enumerate}
+						\end{frame}
+						\begin{frame}
+							\frametitle{Characteristics of WSANs}
+							\begin{enumerate}
+								\item WSANs consist of sensor and actor nodes which collect data from the environment
+								\item perform appropriate actions based on these collected data
+							\end{enumerate}
+								\end{frame}
+								\begin{frame}
+								\frametitle{NETWORK ARCHITECTURE}
+								\begin{enumerate}
+									\item WSANs can be organized into two main architectures. 
+								\begin{itemize}
+									\item Automated architecture:
+									\begin{itemize}
+										\item  sensors send their observations to actors.
+										\item  The actors coordinate among each other to decide on the appropriate action and perform task assignment.
+										\item  Due to the non-existence of a central controller, e.g., sink or human interaction, this architecture is called automated.
+										\item  The observations are distributed among actors and they need to coordinate to make decisions
+							            \item Advantages: 
+							            \begin{itemize}
+							            	\item Lower latency : communication of the observed information from sensors to actors has a much smaller latency compared to sending this information to the sink.
+							            	\item Longer Network Lifetime: The automated architecture results in localized communication, where the sensor observations are delivered to the nearby actors
+							            	This load will be generally small
+							            	As a result, the automated architecture will have a longer lifetime than the semi-automated
+							            	architecture.
+							            	\item Lower network resource consumption: the number of sensors involved in the communication process in the automated architecture is smaller than that in the semi-automated architecture.
+							            	 The network load is distributed and is based on the locations of the events.
+							            	  This results in network resource (i.e., energy, bandwidth, etc.) savings inWSANs.
+							            \end{itemize}
+								\end{itemize}
+								\item Semi-automated architecture: 
+								\begin{itemize}
+									\item In this the sink, i.e., central controller collects data and
+									coordinates the acting process.
+									\item Disadvantage: the semi-automated architecture is prone to single points of failure, where the failure of the sink affects all the tasks in the network
+								\end{itemize} 
+							\end{itemize}
+						\end{enumerate}
+							\end{frame}
+							\begin{frame}
+								\frametitle{PHYSICAL ARCHITECTURE}
+								\begin{enumerate}
+									\item 
+								\end{enumerate}
+								\end{frame}
+									\begin{frame}
+										\frametitle{Sensor–Actor Coordination}
+										\begin{enumerate}
+											\item The most important requirement of sensor–actor coordination is to provide low communication delay due to the proximity of sensors and actors.
+											\item The three main
+											challenges arise for this coordination:
+											\begin{itemize}
+												\item Requirements of sensor–actor communication
+												\item Actor selection
+												\item Communication technique
+											\end{itemize}
+										\end{enumerate}
+									\end{frame}
+									\begin{frame}
+										\frametitle{Requirements of Sensor–Actor Communication}
+										\begin{enumerate}
+											\item The main requirements of for sensor–actor communication for WSANs are 
+											\begin{itemize}
+												\item Real-time bounds
+												\item Energy Efficiency
+												\item Event ordering
+												\item Event synchronization
+												\item Actor selection support
+											\end{itemize}
+										\end{enumerate}
+									\end{frame}
+									\begin{frame}
+										\frametitle{ACTOR SELECTION}
+										\begin{enumerate}
+											\item there are four alternatives for actor selection
+											\begin{itemize}
+												\item Minimum actor set: A minimal set of actors to cover the event region.												• \item Minimum sensor set: The minimum number of sensors to report the sensed event.
+												\item Minimum actor and sensor set: Both cases above.
+												\item Area-based set: The entire set of actors and sensors in the vicinity of the region.
+										\end{itemize}
+										\end{enumerate}
+									\end{frame}
+									\begin{frame}
+										\frametitle{Optimal Solution}
+										\begin{enumerate}
+											\item 
+											\begin{itemize}
+												\item Latency bound
+												\item Expired and reliable packets
+												\item Event reliability
+												\item Event reliability threshold
+												\item Lack of reliability
+											\end{itemize}
+										\end{enumerate}
+									\end{frame}
+									
+										\begin{frame}
+											\frametitle{Distributed Event-Driven Clustering and Routing (DECR) Protocol}
+											\begin{enumerate}
+												\item  
+											\end{enumerate}
+										\end{frame}
+										
+										\begin{frame}
+											\frametitle{PERFORMANCE}
+											\begin{enumerate}
+												\item 
+											\end{enumerate}
+										\end{frame}
+											\begin{frame}
+												\frametitle{Challenges for Sensor–Actor Coordination}
+												\begin{enumerate}
+													\item 
+												\end{enumerate}
+											\end{frame}
+										
+										\begin{frame}
+											\frametitle{Actor–Actor Coordination}
+											\begin{enumerate}
+												\item Actor–actor communication occurs in the following situations
+											\begin{itemize}
+												\item Task distribution
+												\item Event information exchange
+												\item Task co ordination
+												\item Synchronization
+												\item Task execution
+												\item Event information delay
+											\end{itemize}
+											\item The task assignment problems in WSANs can be classified as
+											\begin{itemize}
+												\item Single actor task (SAT) vs. multi-actor task (MAT):
+												\begin{itemize}
+													\item 
+												\end{itemize}
+												\item Centralized decision (CD) vs. distributed decision (DD):
+												\begin{itemize}
+													\item 
+												\end{itemize}
+											\end{itemize}
+											\end{enumerate}
+										\end{frame}
+										
+										\begin{frame}
+											\frametitle{Task Assignment}
+											\begin{enumerate}
+												\item MAT
+												\item SAT
+											\end{enumerate}
+										\end{frame}
+										\begin{frame}
+											\frametitle{Optimal Solution}
+											\begin{enumerate}
+												\item 
+												\begin{itemize}
+													\item Action area
+													\item Action range
+													\item Action completion time
+													\item Action completion bound 
+												\end{itemize}
+											
+											\end{enumerate}
+										\end{frame}
+										
+										\begin{frame}
+											\frametitle{Localized Auction Protocol}
+											\begin{enumerate}
+												\item 
+												\begin{itemize}
+													\item Seller
+													\item Auctioneer
+													\item Buyer
+												\end{itemize}
+												
+											\end{enumerate}
+										\end{frame}
+										\begin{frame}
+											\frametitle{PERFORMANCE EVALUATION}
+											\begin{enumerate}
+												\item 
+												\item 
+											\end{enumerate}
+										\end{frame}
+										\begin{frame}
+											\frametitle{PERFORMANCE EVALUATION}
+											\begin{enumerate}
+												\item 
+												\item 
+											\end{enumerate}
+										\end{frame}
+										\begin{frame}
+											\frametitle{PERFORMANCE EVALUATION}
+											\begin{enumerate}
+												\item 
+												\item 
+											\end{enumerate}
+										\end{frame}
+										\begin{frame}
+											\frametitle{PERFORMANCE EVALUATION}
+											\begin{enumerate}
+												\item 
+												\item 
+											\end{enumerate}
+										\end{frame}
+										\begin{frame}
+											\frametitle{PERFORMANCE EVALUATION}
+											\begin{enumerate}
+												\item gjdgf
+												\item 
+											\end{enumerate}
+										\end{frame}
+										
+										\begin{frame}
+											\frametitle{Challenges for Actor–Actor Coordination}
+											\begin{enumerate}
+												\item A communication model is needed between actors. 
+												\item If the distance between neighbor actors is larger than the transmission range, they cannot directly communicate with each other
+												\item Actors use sensor nodes as intermediaries, which means that actor–actor coordination is performed via sensor nodes
+												\item Ordered execution of tasks for a series of events are required to ensure that there are no adverse effects on the target environment
+												\item Require synchronization of actors to act on the event at the same time. The actors have to coordinate either in a distributed or centralized fashion to determine the time of execution of the task
+												\item based on the location of the event, the actors receiving the event information forward it to a different set of actors corresponding to the estimated new position of the event
+												\item Necessary to address the redundancy in the set of actors that performs a task  to save  the average energy consumed by the actors in the region
+												\item Necessary for only a subset of actors covering the entire event region to be selected to carry out the task
+												\item The challenge is to select the actor which will function as a decision unit. 
+												\item Need for an effective mechanism to provide the decision unit actor with knowledge of the current characteristics eg: location,capability
+												\item So that it can trigger the most appropriate actors for the task
+												\item The most important requirements of actor–actor coordination is to minimize the task completion time.
+												\item Coordination and communication protocols should support real-time properties of WSANs.
+											\end{enumerate}
+										\end{frame}
+										
+										\begin{frame}
+											\frametitle{WSAN PROTOCAL STACK}
+											\begin{enumerate}
+												\item The protocol stack for sensor and actor nodes consists of three planes: 
+												\begin{itemize}
+													\item Communiaction plane 
+													\item Coordination plane
+													\item Management plane
+												\end{itemize}
+												 
+											\end{enumerate}
+										\end{frame}
+											\begin{frame}
+												\frametitle{MANAGEMENT PLANE}
+												\begin{enumerate}
+													\item Responsible for monitoring and controlling a sensor/actor node so that it operates properly.
+													\item  It also provides information needed by the coordination layer to make decisions
+													\begin{itemize}
+														\item Power management plane 
+														\item Mobility management plane
+														\item Fault Management plane
+													\end{itemize}
+													
+												\end{enumerate}
+											\end{frame}
+											\begin{frame}
+												\frametitle{CO ORDINATION PLANE}
+												\begin{enumerate}
+													\item determines how a node behaves according to the data received from the communication plane and management plane
+													\item provides nodes to be modeled as a social entity, i.e., in terms of the coordination and negotiation techniques it possesses
+													\item At each sensor node, the exchanged data are submitted to the coordination plane for decisions.
+													\item Accordingly, sensors are able to coordinate among themselves on a higher level sensing task
+														
+												\end{enumerate}
+											\end{frame}
+											\begin{frame}
+												\frametitle{MANAGEMENT PLANE}
+												\begin{enumerate}
+													\item The functions performed by the management layer can be categorized into the following three areas:
+													
+													\begin{itemize}
+														\item POWER MANAGEMENT
+														\begin{itemize}
+														\item This plane manages how a node uses its power. 
+														\item For example, when the power level of a node is low, this plane informs the coordination plane so that the node will not participate in sensing
+														\end{itemize}
+														\item Mobility management plane:
+														This plane detects and registers the movements of nodes so thatnetwork connectivity is always maintained.
+														\item Fault management plane: 
+														This plane refers to the detection and resolution of node problems.
+														For example, when the sensitivity of a sensing unit or the accuracy of the actuation unit degrades, the fault management plane informs the coordination plane about this
+														
+													\end{itemize}
+													
+												\end{enumerate}
+											\end{frame}
+												\begin{frame}
+													\frametitle{COMMUNICATION PLANE}
+													\begin{enumerate}
+														\item 
+														\begin{itemize}
+															\item  
+															\item 
+															\item 
+														\end{itemize}
+														
+													\end{enumerate}
+												\end{frame}
